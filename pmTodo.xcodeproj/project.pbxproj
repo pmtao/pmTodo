@@ -21,6 +21,8 @@
 		2255110619B80D5B00FD00D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225510E819B80D5B00FD00D5 /* UIKit.framework */; };
 		2255110E19B80D5B00FD00D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2255110C19B80D5B00FD00D5 /* InfoPlist.strings */; };
 		2255111019B80D5B00FD00D5 /* pmTodoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2255110F19B80D5B00FD00D5 /* pmTodoTests.m */; };
+		229E486F19B9526300E02D8F /* ChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 229E486E19B9526300E02D8F /* ChecklistItem.m */; };
+		229E487219B989C000E02D8F /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229E487119B989C000E02D8F /* ItemDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		2255110B19B80D5B00FD00D5 /* pmTodoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pmTodoTests-Info.plist"; sourceTree = "<group>"; };
 		2255110D19B80D5B00FD00D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2255110F19B80D5B00FD00D5 /* pmTodoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pmTodoTests.m; sourceTree = "<group>"; };
+		229E486D19B9526300E02D8F /* ChecklistItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistItem.h; sourceTree = "<group>"; };
+		229E486E19B9526300E02D8F /* ChecklistItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistItem.m; sourceTree = "<group>"; };
+		229E487019B989C000E02D8F /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
+		229E487119B989C000E02D8F /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,10 @@
 				225510F619B80D5B00FD00D5 /* Main.storyboard */,
 				225510F919B80D5B00FD00D5 /* ViewController.h */,
 				225510FA19B80D5B00FD00D5 /* ViewController.m */,
+				229E486D19B9526300E02D8F /* ChecklistItem.h */,
+				229E486E19B9526300E02D8F /* ChecklistItem.m */,
+				229E487019B989C000E02D8F /* ItemDetailViewController.h */,
+				229E487119B989C000E02D8F /* ItemDetailViewController.m */,
 				225510FC19B80D5B00FD00D5 /* Images.xcassets */,
 				225510EB19B80D5B00FD00D5 /* Supporting Files */,
 			);
@@ -252,6 +262,8 @@
 				225510FB19B80D5B00FD00D5 /* ViewController.m in Sources */,
 				225510F519B80D5B00FD00D5 /* AppDelegate.m in Sources */,
 				225510F119B80D5B00FD00D5 /* main.m in Sources */,
+				229E487219B989C000E02D8F /* ItemDetailViewController.m in Sources */,
+				229E486F19B9526300E02D8F /* ChecklistItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +468,7 @@
 				2255111519B80D5B00FD00D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2255111619B80D5B00FD00D5 /* Build configuration list for PBXNativeTarget "pmTodoTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +477,7 @@
 				2255111819B80D5B00FD00D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
