@@ -12,7 +12,7 @@
 @class ItemDetailViewController;
 @class ChecklistItem;
 
-//ItemDetailViewController与ViewController的代理协议，包含2个方法申明。
+//ItemDetailViewController与ChecklistsViewController的代理协议，包含2个方法申明。
 @protocol ItemDetailViewControllerDelegate <NSObject>
 
 -(void)itemDetailViewControllerDidCancel:(ItemDetailViewController*)controller;
