@@ -11,7 +11,6 @@
 
 @interface ChecklistsViewController ()
 
-
 @end
 
 @implementation ChecklistsViewController{
@@ -20,43 +19,93 @@
     
 }
 
+//加载plist记录数据文件
+-(void)loadChecklistItems{
+    
+    NSString *path =[self dataFilePath];
+    
+    if([[NSFileManager defaultManager]fileExistsAtPath:path]){
+        NSData *data = [[NSData alloc]initWithContentsOfFile:path ];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
+        _items = [unarchiver decodeObjectForKey:@"ChecklistItems"];
+        [unarchiver finishDecoding];
+        
+    }else{
+        
+        _items = [[NSMutableArray alloc]initWithCapacity:20];
+    }
+    
+}
+
+//创建数据模型,并加载plist文件
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    if((self =[super initWithCoder:aDecoder]))
+    {
+        [self loadChecklistItems];
+    }
+    
+    return self;
+}
+
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    _items = [[NSMutableArray alloc]initWithCapacity:20];
-    ChecklistItem *item;
-    
-    item = [[ChecklistItem alloc]init];
-    item.text =@"观看嫦娥⻜天和玉兔升空的视频";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[ChecklistItem alloc]init];
-    item.text =@"了解Sony a7和MBP的最新价格";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[ChecklistItem alloc]init];
-    item.text =@"复习苍⽼老师的经典视频教程";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[ChecklistItem alloc]init];
-    item.text =@"去电影院看地⼼引力";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[ChecklistItem alloc]init];
-    item.text =@"看西甲巴萨新败的⽐比赛回放";
-    item.checked = NO;
-    [_items addObject:item];
-    
-//    _items[1].checked;
-//    _items[3].checked;// = YES;
+//    _items = [[NSMutableArray alloc]initWithCapacity:20];
+//    ChecklistItem *item;
 //    
+//    item = [[ChecklistItem alloc]init];
+//    item.text =@"观看嫦娥⻜天和玉兔升空的视频";
+//    item.checked = NO;
+//    [_items addObject:item];
+//    
+//    item = [[ChecklistItem alloc]init];
+//    item.text =@"了解Sony a7和MBP的最新价格";
+//    item.checked = NO;
+//    [_items addObject:item];
+//    
+//    item = [[ChecklistItem alloc]init];
+//    item.text =@"复习苍⽼老师的经典视频教程";
+//    item.checked = NO;
+//    [_items addObject:item];
+//    
+//    item = [[ChecklistItem alloc]init];
+//    item.text =@"去电影院看地⼼引力";
+//    item.checked = NO;
+//    [_items addObject:item];
+//    
+//    item = [[ChecklistItem alloc]init];
+//    item.text =@"看西甲巴萨新败的⽐比赛回放";
+//    item.checked = NO;
+//    [_items addObject:item];
+//    
+//    NSLog(@"文件夹的路径是：%@", [self documentsDirectory]);
+//    NSLog(@"数据文件的最终路径是：%@", [self dataFilePath]);
+    
+}
+
+//获取Documents文件夹的完整路径
+-(NSString*)documentsDirectory{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    return documentsDirectory;
+}
+
+//创建数据保存文件的完整路径
+-(NSString*)dataFilePath{
+    return [[self documentsDirectory]stringByAppendingPathComponent:@"Checklists.plist"];
+}
+
+//将事项数据写入到文件中
+-(void)saveChecklistItems{
+    NSMutableData *data = [[NSMutableData alloc]init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
+    [archiver encodeObject:_items forKey:@"ChecklistItems"];
+    [archiver finishEncoding];
+    [data writeToFile:[self dataFilePath] atomically:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,11 +118,8 @@
     return [_items count];
 }
 
-//-(void)configureCheckmarkForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{
-//    ChecklistItem *item = _items[indexPath.row];
-
 -(void)configureCheckmarkForCell:(UITableViewCell *)cell withChecklistItem:(ChecklistItem *)item{
-    UILabel *label = (UILabel *)[cell viewWithTag:1001];
+    UILabel *label = (UILabel *)[cell viewWithTag:1001];//通过tag进行访问，1001即tag。
     
     if(item.checked){
         label.text = @"√";
@@ -101,6 +147,7 @@
     return cell;
 }
 
+//点击记录更改完成标志状态
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell =[tableView cellForRowAtIndexPath:indexPath];
@@ -109,13 +156,17 @@
     [item toggleChecked];
     
     [self configureCheckmarkForCell:cell withChecklistItem:item];
+    [self saveChecklistItems];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+//滑动删除记录
 -(void)tableView:(UITableView *)tableView commitEditingStyle: (UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [_items removeObjectAtIndex:indexPath.row];
+    [self saveChecklistItems];
+    
     NSArray *indexPaths = @[indexPath];
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -134,6 +185,7 @@
     NSArray *indexPaths = @[indexPath];
     
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self saveChecklistItems];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -144,6 +196,7 @@
     UITableViewCell *cell=[self.tableView cellForRowAtIndexPath:indexPath];
 
     [self configureTextForCell:cell withChecklistItem:item];
+    [self saveChecklistItems];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
