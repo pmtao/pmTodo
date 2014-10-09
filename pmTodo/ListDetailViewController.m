@@ -39,7 +39,7 @@
     [super viewDidLoad];
     
     if(self.checklistToEdit !=nil){
-        self.title=@"Edit Checklist";
+        self.title=@"编辑项目信息";
         self.textField.text=self.checklistToEdit.name;
         self.doneBarButton.enabled=YES;
         _iconName = self.checklistToEdit.iconName;

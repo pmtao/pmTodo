@@ -79,15 +79,15 @@
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
     int remainCount =[checklist countUncheckedItems];
-    int allCount = [checklist.items count];
+    int allCount = (int)[checklist.items count];
     
     if(allCount == 0){
-        cell.detailTextLabel.text = @"It's empty, add some items.";
+        cell.detailTextLabel.text = @"还没任何任务。";
     }else if(allCount >0){
         if(remainCount == 0){
-            cell.detailTextLabel.text = @"All Done!";
+            cell.detailTextLabel.text = @"恭喜，任务全部完成!";
         }else if (remainCount >0){
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d Remaining",[checklist countUncheckedItems]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"还剩 %d项任务",[checklist countUncheckedItems]];
         }
     }
     

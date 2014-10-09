@@ -32,4 +32,8 @@
 @property(nonatomic,weak) id <ItemDetailViewControllerDelegate> delegate;
 @property(nonatomic,strong) ChecklistItem *itemToEdit;
 
+//提醒信息开关属性
+@property(nonatomic,weak) IBOutlet UISwitch *switchControl;
+@property(nonatomic,weak) IBOutlet UILabel *dueDateLable;
+
 @end

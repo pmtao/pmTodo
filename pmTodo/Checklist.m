@@ -13,8 +13,8 @@
 
 -(id)init{
     if((self=[super init])){
-        self.items=[[NSMutableArray alloc]initWithCapacity:20];
-        self.iconName = @"No Icon";//默认代办事项图标
+        self.items=[[NSMutableArray alloc]initWithCapacity:5];
+        self.iconName = @"No Icon";//默认待办事项图标
     }
     
     return self;
@@ -36,7 +36,7 @@
     [aCoder encodeObject:self.items forKey:@"iconName"];
 }
 
-//统计某个代办事项的详细清单中，还有多少未完成事项。
+//统计某个待办事项的详细清单中，还有多少未完成事项。
 -(int)countUncheckedItems{
     
     int count = 0;
@@ -53,6 +53,11 @@
 //总事项列表排序算法
 -(NSComparisonResult)compare:(Checklist *)otherChecklist{
     return [self.name localizedStandardCompare:otherChecklist.name];
+}
+
+//具体事项列表按截止日期排序
+- (void)sortChecklistItem{
+    [self.items sortUsingSelector:@selector(compare:)];
 }
 
 @end

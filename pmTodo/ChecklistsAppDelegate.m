@@ -25,7 +25,23 @@
     AllListsViewController *controller = navigationController.viewControllers[0];
     controller.dataModel = _dataModel;
     
+//    //增加本地消息通知local notification
+//    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:10];
+//    UILocalNotification *localNotification = [[UILocalNotification alloc]init];
+//    
+//    localNotification.fireDate = date;
+//    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+//    localNotification.alertBody = @"2014国庆快到了，准备行动吧！";
+//    localNotification.soundName = UILocalNotificationDefaultSoundName;
+//    [[UIApplication sharedApplication]scheduleLocalNotification:localNotification];
+    
     return YES;
+}
+
+//输出消息通知内容到控制台
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    NSLog(@"didReceiveLocalNotification %@",notification);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

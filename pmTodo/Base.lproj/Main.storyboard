@@ -28,10 +28,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Checklist Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sja-26-6ka">
-                                            <rect key="frame" x="27" y="11" width="221" height="21"/>
+                                            <rect key="frame" x="27" y="3" width="221" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Due Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d7-Nt-6Y0">
+                                            <rect key="frame" x="27" y="25" width="221" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -74,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="525" y="744"/>
         </scene>
-        <!--Item Detail View Controller - Add Item-->
+        <!--Item Detail View Controller - 添加事项-->
         <scene sceneID="xYU-on-b3K">
             <objects>
                 <tableViewController id="2fF-lh-Yww" customClass="ItemDetailViewController" sceneMemberID="viewController">
@@ -107,13 +113,62 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="HjZ-qy-Jhk">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="m3c-EN-UrK">
+                                        <rect key="frame" x="0.0" y="163" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3c-EN-UrK" id="1wm-Yl-rCG">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="提醒我" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Rr-Xq-tp3">
+                                                    <rect key="frame" x="15" y="11" width="51" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vg1-JJ-mvR">
+                                                    <rect key="frame" x="251" y="6" width="51" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="d7f-Ll-pYz" detailTextLabel="bSB-ow-9rx" style="IBUITableViewCellStyleValue1" id="8TC-3O-gCP">
+                                        <rect key="frame" x="0.0" y="207" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8TC-3O-gCP" id="pPg-a1-qUE">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="提醒日期" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d7f-Ll-pYz">
+                                                    <rect key="frame" x="15" y="11" width="68" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bSB-ow-9rx">
+                                                    <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="2fF-lh-Yww" id="GWf-0f-u3r"/>
                             <outlet property="delegate" destination="2fF-lh-Yww" id="f9H-SF-OOD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Item" id="Fv4-CA-jD1">
+                    <navigationItem key="navigationItem" title="添加事项" id="Fv4-CA-jD1">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="5uw-eL-XxQ">
                             <connections>
                                 <action selector="cancel:" destination="2fF-lh-Yww" id="oJM-GZ-Dgd"/>
@@ -127,6 +182,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneBarButton" destination="G26-16-6Xf" id="q9O-Oa-kPb"/>
+                        <outlet property="dueDateLable" destination="bSB-ow-9rx" id="VwT-Qk-nQP"/>
+                        <outlet property="switchControl" destination="Vg1-JJ-mvR" id="eOQ-Jh-sfm"/>
                         <outlet property="textField" destination="Kod-Gl-evT" id="Hxe-YX-snT"/>
                     </connections>
                 </tableViewController>
@@ -152,7 +209,7 @@
             </objects>
             <point key="canvasLocation" x="-417" y="24"/>
         </scene>
-        <!--All Lists View Controller - Checklists-->
+        <!--All Lists View Controller - 待办项目-->
         <scene sceneID="2VK-jv-Rsy">
             <objects>
                 <tableViewController id="7wg-6U-qfv" customClass="AllListsViewController" sceneMemberID="viewController">
@@ -165,7 +222,7 @@
                             <outlet property="delegate" destination="7wg-6U-qfv" id="Odb-dD-1ES"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklists" id="hjw-Zr-wGy">
+                    <navigationItem key="navigationItem" title="待办项目" id="hjw-Zr-wGy">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2bP-PG-7OY">
                             <connections>
                                 <segue destination="nrL-ak-OzY" kind="modal" identifier="AddChecklist" id="yPj-7E-acY"/>
@@ -199,7 +256,7 @@
             </objects>
             <point key="canvasLocation" x="957" y="24"/>
         </scene>
-        <!--List Detail View Controller - Add Checklist-->
+        <!--List Detail View Controller - 增加待办项目-->
         <scene sceneID="lHr-Oy-3de">
             <objects>
                 <tableViewController id="k9Y-EJ-Hwg" customClass="ListDetailViewController" sceneMemberID="viewController">
@@ -241,8 +298,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Icon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2U-U9-7be">
-                                                    <rect key="frame" x="20" y="11" width="34" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="项目图标" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2U-U9-7be">
+                                                    <rect key="frame" x="20" y="11" width="79" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -266,7 +323,7 @@
                             <outlet property="delegate" destination="k9Y-EJ-Hwg" id="rh0-Vz-tuW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Checklist" id="0A9-QK-mPc">
+                    <navigationItem key="navigationItem" title="增加待办项目" id="0A9-QK-mPc">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="2it-eJ-ZSa">
                             <connections>
                                 <action selector="cancel:" destination="k9Y-EJ-Hwg" id="JEa-Wj-uGv"/>
@@ -288,7 +345,7 @@
             </objects>
             <point key="canvasLocation" x="957" y="744"/>
         </scene>
-        <!--Icon Picker View Controller - Choose Icon-->
+        <!--Icon Picker View Controller - 选择项目图标-->
         <scene sceneID="NQD-Ze-EMr">
             <objects>
                 <tableViewController id="Du0-1e-JgD" customClass="IconPickerViewController" sceneMemberID="viewController">
@@ -320,7 +377,7 @@
                             <outlet property="delegate" destination="Du0-1e-JgD" id="xPg-oZ-9xh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Icon" id="UdL-o1-WUM"/>
+                    <navigationItem key="navigationItem" title="选择项目图标" id="UdL-o1-WUM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MQq-Of-ee5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -334,6 +391,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mLF-Le-3sS"/>
+        <segue reference="TEf-CQ-DxB"/>
     </inferredMetricsTieBreakers>
 </document>

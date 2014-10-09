@@ -3,20 +3,25 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Pm_todo_SpotlightSettings.png@2x.png",
+      "filename" : "Pm_todo_SpotlightSettings_2.png@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Pm_todo_Spotlight.png@2x.png",
+      "filename" : "Pm_todo_Spotlight_2.png@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Pm_todo_icon.png@2x.png",
+      "filename" : "Pm_todo_icon_2.png@2x.png",
       "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "60x60",
+      "scale" : "3x"
     }
   ],
   "info" : {

@@ -22,4 +22,6 @@
 //给总事项清单排序
 -(void)sortChecklists;
 
++ (NSInteger)nextChecklistItemId;
+
 @end
